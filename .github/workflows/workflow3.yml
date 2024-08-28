@@ -14,7 +14,7 @@ jobs:
       - name: Set color
         id: color-selector
         run: |
-          $COLOR="Blue"
+          echo "COLOR=Blue" >> $GITHUB_ENV
       - name: Get color
         run: echo "The selected color is $COLOR"
 
