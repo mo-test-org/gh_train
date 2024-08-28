@@ -6,24 +6,25 @@ name: passing job values
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  
+
 jobs:
   pass_in_one_job:
     runs-on: ubuntu-latest
     steps:
       - name: Set color
         id: color-selector
-        run: <USTAW ZMIENNĄ >
+        run: |
+          COLOR=Blue
       - name: Get color
         run: echo "The selected color is $COLOR"
-        
+
   producer:
     runs-on: ubuntu-latest
     steps:
       - name: Make a sentence
         id: sentence_maker
         run: |
-            # USTAW ZMIENNĄ ŚRODOWISKOWĄ
+          echo "message=$COLOR" >> "$GITHUB_OUTPUT"
 
   consumer:
     runs-on: ubuntu-latest
@@ -48,4 +49,4 @@ jobs:
       - shell: bash
         run: |
           value=`cat NAZWA_PLIKU_Z_ARTEFAKTU`
-          echo $(expr $value \* 9) 
+          echo $(expr $value \* 9)
