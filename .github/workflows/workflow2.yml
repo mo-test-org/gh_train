@@ -5,12 +5,8 @@ env:
 
 jobs:
   display-variables:
-    name: <UŻYJ TU ENVIRONMENT_VAR>
-    variables:
-      REPOSITORY_VAR: "Repository variable"
-      ORGANIZATION_VAR: "Organization variable"
-      ENVIRONMENT_VAR: "Environment variable"
-      cat_name: ${{env.cat_name}}
+    name: Display variables
+    environment: ${{ vars.ENVIRONMENT_STAGE }}
     runs-on: ubuntu-latest
     steps:
       - name: Use variables 1
