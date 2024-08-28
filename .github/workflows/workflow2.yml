@@ -6,7 +6,7 @@ env:
 jobs:
   display-variables:
     name: Display variables
-    environment: ${{ vars.ENVIRONMENT_STAGE }}
+    environment: test
     runs-on: ubuntu-latest
     steps:
       - name: Use variables 1
@@ -14,7 +14,7 @@ jobs:
           echo "Repository variable : $REPOSITORY_VAR"
           echo "Organization variable : $ORGANIZATION_VAR"
           echo "Environment variable : $ENVIRONMENT_VAR"
-          echo "Ala ma kota o nazwie <WYPISZ TU IMIĘ KOTA ZAPISANE W ZMIENNEJ cat_name>"
+          echo "Ala ma kota o nazwie $cat_name"
           echo "Powinna być zmienna w scopie workflow:$WORKFLOW_VAR"
           echo "Powinna być zmienna w scopie joba:$JOB_VAR"
           echo "Powinna być zmienna w scopie stepu:$STEP_VAR"
