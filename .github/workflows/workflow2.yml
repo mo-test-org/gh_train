@@ -5,9 +5,13 @@ env:
 
 jobs:
   display-variables:
-    name: Display variables
+    name: test
     environment: test
     runs-on: ubuntu-latest
+    env:
+      REPOSITORY_VAR: ${{ vars.REPOSITORY_VAR }}
+      ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
+      ENVIRONMENT_VAR: ${{ vars.ENVIRONMENT_VAR }}
     steps:
       - name: Use variables 1
         run: |
@@ -21,7 +25,7 @@ jobs:
 
       - name: Use variables 1
         run: |
-          echo "Ala ma kota o nazwie <WYPISZ TU IMIĘ KOTA ZAPISANE W ZMIENNEJ cat_name>"
+          echo "Ala ma kota o nazwie $cat_name"
           echo "Powinna być zmienna w scopie workflow:$WORKFLOW_VAR"
           echo "Powinna być zmienna w scopie joba:$JOB_VAR"
           echo "NIE powinna być zmienna w scopie stepu:$STEP_VAR"
