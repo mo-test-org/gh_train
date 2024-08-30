@@ -12,8 +12,14 @@ on:
           - "info"
           - "warning"
         default: "warning"
+      matrix:
+        type: string
+        description: "Matrix"
+        required: true
 
 jobs:
+  strategy:
+    matrix: ${{ fromJSON(github.event.inputs.matrix) }}
   log-the-inputs:
     runs-on: ubuntu-latest
     steps:
