@@ -16,6 +16,7 @@ on:
         type: string
         description: "Matrix"
         required: true
+        default: '{ "version": [10, 12, 14], "os": ["ubuntu-latest", "windows-latest"] }'
 
 jobs:
   strategy:
