@@ -20,7 +20,8 @@ on:
 
 jobs:
   strategy:
-    matrix: ${{ fromJSON(github.event.inputs.matrix) }}
+    strategy:
+      matrix: ${{ fromJSON(github.event.inputs.matrix) }}
   log-the-inputs:
     runs-on: ubuntu-latest
     steps:
